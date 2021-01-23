@@ -1,5 +1,7 @@
 version: "3.0"
+
 services: 
+
   rdbm: 
     image: mariadb:10.3.16
     environment: 
@@ -9,12 +11,14 @@ services:
       MYSQL_DATABASE: prueba
     volumes:
       - db:/var/lib/mysql
+
   phpmyadmin:
     image: phpmyadmin:5.0.4
     ports:
       - "8080:80"
     environment:
       PMA_ARBITRARY: 1
+
   wordpress:
     image: wordpress
     ports:
@@ -26,6 +30,7 @@ services:
       WORDPRESS_DB_NAME: prueba
     volumes:
       - wordpress:/var/www/html
+
 volumes:
   db:
   wordpress:
